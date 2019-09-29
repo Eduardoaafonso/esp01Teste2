@@ -1,0 +1,11 @@
+Grafico
+
+https://redstapler.co/javascript-realtime-chart-plotly/
+https://github.com/plotly/plotly.js/releases?after=v1.38.0
+
+Enviar para firebase
+
+https://scotch.io/@sikrigagan/creating-dynamic-javascript-charts-with-firebase
+
+APP github
+https://github.com/olivierlourme/esp8266webapp
