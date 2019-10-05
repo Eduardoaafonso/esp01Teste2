@@ -1,0 +1,63 @@
+  <!-- Codigo HTML -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Teste1</title>
+    <style>
+      body{
+        background-color: #f0f0f0;
+      }
+</style>
+  </head>
+
+  <body>
+    <center>
+    <h1><span id="valorLDR"></span></span></h1>
+  </body>
+  </center>
+
+<!-- Scripts JS -->
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+  <script type="text/javascript">
+  (function(){
+
+  var config = {
+    apiKey: "AIzaSyC1Z_mdhzP8RclAGnDsIXAwWNFhMvLj-is",
+    authDomain: "prototipofikiria.firebaseapp.com",
+    databaseURL: "https://prototipofikiria.firebaseio.com",
+    projectId: "prototipofikiria",
+    storageBucket: "prototipofikiria.appspot.com",
+    messagingSenderId: "268118888837"
+  };
+  firebase.initializeApp(config);
+  var db = firebase.database();
+
+  var LDR = db.ref('cont');
+
+
+  LDR.on('value', onNewData('valorLDR'));
+
+  })();
+
+  function onNewData(currentValueEl, metric){
+  return function(snapshot){
+    var readings = snapshot.val();
+    if(readings){
+        var currentValue;
+        var data = [];
+        for(var key in readings){
+          currentValue = readings[key]
+          data.push(currentValue);
+        }
+
+        document.getElementById(currentValueEl).innerText = currentValue;
+      }
+    }
+  }
+  ('value', function(snapshot){   
+  });
+</script>
+</html>
